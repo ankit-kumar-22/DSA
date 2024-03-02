@@ -2,21 +2,21 @@ package sortingAlgos;
 
 public class SelectionSort {
     public static void main(String[] args) {
-        int A[] = { 23, 45, 11, 4, 1, 5 };
+        int A[] = { 64, 25, 12, 22, 11 };
         for (int i = 0; i < A.length; i++) {
+            int min_index = find_min(A, i, A.length);
             int temp = A[i];
-            int index = findMin(A, i, A.length);
-            A[i] = A[index];
-            A[index] = temp;
-
+            A[i] = A[min_index];
+            A[min_index] = temp;
         }
-        for (int value : A)
-            System.out.print(value + "  ");
+
+        for (int val : A)
+            System.out.print(val + " ");
 
     }
 
-    public static int findMin(int[] A, int s, int e) {
-        int min = A[s], ans = 0;
+    public static int find_min(int A[], int s, int e) {
+        int ans = s, min = A[s];
         for (int i = s; i < e; i++) {
             if (min >= A[i]) {
                 min = A[i];
